@@ -1,0 +1,21 @@
+#! /bin/sh
+unload=/lejos/bin/exit
+test -x "$unload" || exit 0
+
+case "$1" in
+  start)
+    echo "unload modules and power off"
+    start-stop-daemon --start --quiet --exec $unload
+    echo "."
+    ;;
+  stop)
+    echo "unload modules and power off"
+    start-stop-daemon --start --quiet --exec $unload
+    echo "."
+    ;;
+  *)
+    echo "Usage: /etc/init.d/lejos {start|stop}"
+    exit 1
+esac
+
+exit 0

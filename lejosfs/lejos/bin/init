@@ -1,0 +1,30 @@
+#! /bin/sh
+mod=/home/root/lms2012/sys
+sync
+
+var=$(printf 'HostStr=%s SerialStr=%s' $(cat /home/root/lms2012/sys/settings/BrickName) $(cat /home/root/lms2012/sys/settings/BTser))
+echo $var > /home/root/lms2012/sys/settings/UsbInfo.dat
+
+insmod $mod/mod/d_iic.ko `cat /home/root/lms2012/sys/settings/HwId`
+insmod $mod/mod/d_uart.ko `cat /home/root/lms2012/sys/settings/HwId`
+insmod $mod/mod/d_power.ko `cat /home/root/lms2012/sys/settings/HwId`
+insmod $mod/mod/d_pwm.ko `cat /home/root/lms2012/sys/settings/HwId`
+insmod $mod/mod/d_ui.ko `cat /home/root/lms2012/sys/settings/HwId`
+insmod $mod/mod/d_analog.ko `cat /home/root/lms2012/sys/settings/HwId`
+insmod $mod/mod/d_usbdev.ko `cat /home/root/lms2012/sys/settings/UsbInfo.dat`
+insmod $mod/mod/d_usbhost.ko
+insmod $mod/mod/d_sound.ko `cat /home/root/lms2012/sys/settings/HwId`
+insmod $mod/mod/d_bt.ko `cat /home/root/lms2012/sys/settings/HwId`
+
+chmod 666 /dev/lms_pwm
+chmod 666 /dev/lms_motor
+chmod 666 /dev/lms_analog
+chmod 666 /dev/lms_dcm
+chmod 666 /dev/lms_ui
+chmod 666 /dev/lms_uart
+chmod 666 /dev/lms_power
+chmod 666 /dev/lms_usbdev
+chmod 666 /dev/lms_usbhost
+chmod 666 /dev/lms_sound
+chmod 666 /dev/lms_iic
+chmod 666 /dev/lms_bt

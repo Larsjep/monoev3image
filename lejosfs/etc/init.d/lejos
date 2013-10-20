@@ -1,0 +1,23 @@
+#! /bin/sh
+startup=/lejos/bin/startup
+shutdown=/lejos/bin/shutdown
+test -x "$startup" || exit 0
+test -x "$shutdown" || exit 0
+
+case "$1" in
+  start)
+    echo "Starting lejos dev env"
+    start-stop-daemon --start --quiet --exec $startup
+    echo "."
+    ;;
+  stop)
+    echo "Stopping lejos"
+    start-stop-daemon --start --quiet --exec $shutdown
+    echo "."
+    ;;
+  *)
+    echo "Usage: /etc/init.d/lejos {start|stop}"
+    exit 1
+esac
+
+exit 0
