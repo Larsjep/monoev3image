@@ -70,6 +70,9 @@ sudo mount /dev/mapper/loop0p2 /mnt/LMS2012_EXT
 
 ./update_sdcard.sh /mnt
 
+echo "Adding ev3 library and examples"
+./make_ev3lib.sh
+
 echo "Unmounting"
 sudo umount /mnt/LMS*
 sudo kpartx -d -v ${img}
