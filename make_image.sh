@@ -78,5 +78,7 @@ sudo umount /mnt/LMS*
 sudo kpartx -d -v ${img}
 echo "Compressing image"
 gzip ${img}
+echo "Cleaning up"
+sudo rm -r ev3lib
 echo "All done..."
 
