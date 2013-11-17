@@ -5,7 +5,7 @@ curdir=${PWD}
 sudo -v
 
 drive=loop0
-img=imagefile
+img=imagefile.img
 
 echo "  ...."creating image file
         
