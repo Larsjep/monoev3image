@@ -5,11 +5,12 @@ curdir=${PWD}
 sudo -v
 
 drive=loop0
-img=imagefile.img
+img=$1
+size=$2
 
 echo "  ...."creating image file
         
-dd if=/dev/zero of=${img} bs=1M count=512
+dd if=/dev/zero of=${img} bs=1M count=${size}
         
 sudo losetup /dev/${drive} ${img}
 echo "  ...."creating partitions
