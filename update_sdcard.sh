@@ -55,6 +55,9 @@ then
 	sudo rm "$mount/LMS2012_EXT"/sbin/sln
         sudo cp -r glibc-install/* "$mount/LMS2012_EXT"
 
+        echo "  ...."copying.startup.script
+        sudo cp startup "$mount/LMS2012_EXT/lejos/bin"
+
 	
         echo "  ...."writing.to.sdcard
         sync

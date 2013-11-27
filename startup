@@ -1,0 +1,12 @@
+#! /bin/sh
+echo "Start WiFi"
+/lejos/bin/startwlan
+#echo "Mount dev system"
+#busybox mount -t nfs -o nolock legovm:/export/Lego /legovm
+# show lejos splash, while modules load
+echo "Load modules"
+/lejos/bin/init
+echo "Load mono startup"
+/usr/local/bin/mono /usr/local/bin/StartupApp.exe >> /var/log/startuplog 2>&1  &
+echo "Complete"
+
