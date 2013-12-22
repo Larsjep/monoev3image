@@ -1,6 +1,6 @@
 #! /bin/sh
-echo "Start WiFi"
-/lejos/bin/startwlan
+#echo "Start WiFi"
+#/lejos/bin/startwlan
 #echo "Mount dev system"
 #busybox mount -t nfs -o nolock legovm:/export/Lego /legovm
 # show lejos splash, while modules load
