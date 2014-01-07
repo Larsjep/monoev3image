@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /usr/local/bin/mono $MONO_OPTIONS /usr/local/lib/mono/4.5/mono-xmltool.exe "$@"
+exec /usr/local/bin/mono $MONO_OPTIONS /usr/local/lib/mono/4.0/mono-xmltool.exe "$@"

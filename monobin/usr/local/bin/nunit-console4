@@ -1,2 +1,0 @@
-#!/bin/sh
-exec /usr/local/bin/mono --debug $MONO_OPTIONS /usr/local/lib/mono/4.5/nunit-console.exe "$@"

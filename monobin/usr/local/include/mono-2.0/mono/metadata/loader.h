@@ -59,9 +59,6 @@ mono_add_internal_call     (const char *name, const void* method);
 void*
 mono_lookup_internal_call (MonoMethod *method);
 
-const char*
-mono_lookup_icall_symbol (MonoMethod *m);
-
 void
 mono_dllmap_insert (MonoImage *assembly, const char *dll, const char *func, const char *tdll, const char *tfunc);
 

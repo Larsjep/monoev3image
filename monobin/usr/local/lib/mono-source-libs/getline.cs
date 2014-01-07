@@ -23,7 +23,12 @@
 //    behind its back (P/Invoke puts for example).
 //    System.Console needs to get the DELETE character, and report accordingly.
 //
+#if NET_2_0 || NET_1_1
+#define IN_MCS_BUILD
+#endif
 
+// Only compile this code in the 2.0 profile, but not in the Moonlight one
+#if (IN_MCS_BUILD && NET_2_0 && !SMCS_SOURCE) || !IN_MCS_BUILD
 using System;
 using System.Text;
 using System.IO;
@@ -501,7 +506,7 @@ namespace Mono.Terminal {
 				return -1;
 
 			int i = p;
-			if (Char.IsPunctuation (text [p]) || Char.IsSymbol (text [p]) || Char.IsWhiteSpace (text[p])){
+			if (Char.IsPunctuation (text [p]) || Char.IsWhiteSpace (text[p])){
 				for (; i < text.Length; i++){
 					if (Char.IsLetterOrDigit (text [i]))
 					    break;
@@ -939,14 +944,13 @@ namespace Mono.Terminal {
 			//
 			public void Append (string s)
 			{
-				//Console.WriteLine ("APPENDING {0} head={1} tail={2}", s, head, tail);
+				//Console.WriteLine ("APPENDING {0} {1}", s, Environment.StackTrace);
 				history [head] = s;
 				head = (head+1) % history.Length;
 				if (head == tail)
 					tail = (tail+1 % history.Length);
 				if (count != history.Length)
 					count++;
-				//Console.WriteLine ("DONE: head={1} tail={2}", s, head, tail);
 			}
 
 			//
@@ -978,13 +982,7 @@ namespace Mono.Terminal {
 			public bool PreviousAvailable ()
 			{
 				//Console.WriteLine ("h={0} t={1} cursor={2}", head, tail, cursor);
-				if (count == 0)
-					return false;
-				int next = cursor-1;
-				if (next < 0)
-					next = count-1;
-
-				if (next == head)
+				if (count == 0 || cursor == tail)
 					return false;
 
 				return true;
@@ -992,11 +990,10 @@ namespace Mono.Terminal {
 
 			public bool NextAvailable ()
 			{
-				if (count == 0)
-					return false;
 				int next = (cursor + 1) % history.Length;
-				if (next == head)
+				if (count == 0 || next >= head)
 					return false;
+
 				return true;
 			}
 			
@@ -1077,3 +1074,4 @@ namespace Mono.Terminal {
 	}
 #endif
 }
+#endif

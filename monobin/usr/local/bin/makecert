@@ -1,3 +1,3 @@
 #!/bin/sh
 umask 077
-exec /usr/local/bin/mono $MONO_OPTIONS /usr/local/lib/mono/4.5/makecert.exe "$@"
+exec /usr/local/bin/mono $MONO_OPTIONS /usr/local/lib/mono/4.0/makecert.exe "$@"
