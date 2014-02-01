@@ -15,3 +15,4 @@ sudo find -iname *.dll -exec cp "{}" /mnt/LMS2012_EXT/home/root/apps/ \;
 sudo rm /mnt/LMS2012_EXT/home/root/apps/StartupApp.exe
 sudo find -iname StartupApp.exe -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
 sudo find -iname MonoBrickFirmware.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
+sudo find -iname StartupApp.XmlSerializers.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
