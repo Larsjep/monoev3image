@@ -1,0 +1,29 @@
+#! /bin/sh
+# run this command with a single parameter that is the pin to use for pairing
+. /etc/default/lejos
+. ${LEJOS_HOME}/bin/funcs.sh
+log "Start Bluetooth..."
+LJBIN=${LEJOS_HOME}/bin
+NETADDRESS=`cat ${LJBIN}/netaddress`
+HOSTNAME=`hostname`
+# set default pin if none specified
+defpin=`cat /etc/bluetooth/btpin 2> /dev/null`
+pin=${1:-$defpin} 
+pin=${pin:-1234}
+# terminate any running servers
+killall agent pand 2> /dev/null
+# give things time to notice they have gone
+sleep 5
+log "Configure Bluetooth..."
+# configure Bluetooth
+hciconfig hci0 lm MASTER
+hciconfig hci0 name ${HOSTNAME}
+# make us discoverable
+hciconfig hci0 piscan
+log "Set PIN..."
+# set pin
+agent -a hci0 ${pin} &
+# listen for pan connections
+log "Start PAN..."
+pand --listen --role NAP --devup ${LJBIN}/btup --devdown ${LJBIN}/btdown -sdp
+

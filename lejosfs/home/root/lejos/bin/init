@@ -1,0 +1,31 @@
+#! /bin/sh
+. /etc/default/lejos
+sync
+
+#var=$(printf 'HostStr=%s SerialStr=%s' $(cat ${LMS2012_SETTINGS}/BrickName) $(cat ${LMS2012_SETTINGS}/BTser))
+#echo $var > ${LMS2012_SETTINGS}/UsbInfo.dat
+HwId=`cat /var/volatile/HwId`
+echo "Hardware ID: $HwId"
+insmod ${LEJOS_MODULES}/d_iic.ko $HwId
+insmod ${LEJOS_MODULES}/d_uart.ko $HwId
+#insmod ${LEJOS_MODULES}/d_power.ko $HwId
+insmod ${LEJOS_MODULES}/d_pwm.ko $HwId
+insmod ${LEJOS_MODULES}/d_ui.ko $HwId
+insmod ${LEJOS_MODULES}/d_analog.ko $HwId
+#insmod ${LEJOS_MODULES}/d_usbdev.ko `cat ${LMS2012_SETTINGS}/UsbInfo.dat`
+#insmod ${LEJOS_MODULES}/d_usbhost.ko
+insmod ${LEJOS_MODULES}/d_sound.ko $HwId
+#insmod ${LEJOS_MODULES}/d_bt.ko $HwId
+
+chmod 666 /dev/lms_pwm
+chmod 666 /dev/lms_motor
+chmod 666 /dev/lms_analog
+chmod 666 /dev/lms_dcm
+chmod 666 /dev/lms_ui
+chmod 666 /dev/lms_uart
+chmod 666 /dev/lms_power
+#chmod 666 /dev/lms_usbdev
+chmod 666 /dev/lms_usbhost
+chmod 666 /dev/lms_sound
+chmod 666 /dev/lms_iic
+chmod 666 /dev/lms_bt

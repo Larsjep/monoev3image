@@ -1,0 +1,13 @@
+#! /bin/sh
+. /etc/default/lejos
+. ${LEJOS_HOME}/bin/funcs.sh
+startLog
+log "Power off..."
+log "5"
+log "5 4"
+log "5 4 3"
+log "5 4 3 2"
+log "5 4 3 2 1"
+log ""
+stopLog
+sync;sync

@@ -1,0 +1,6 @@
+# file containing the location of various lejos components
+LEJOS_HOME=/home/root/lejos
+LMS2012_HOME=/home/root/lms2012
+LEJOS_MODULES=${LEJOS_HOME}/mod
+LMS2012_SETTINGS=${LMS2012_HOME}/sys/settings
+

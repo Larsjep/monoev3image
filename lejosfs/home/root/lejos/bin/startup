@@ -1,0 +1,18 @@
+#! /bin/sh
+. /etc/default/lejos
+. ${LEJOS_HOME}/bin/funcs.sh
+startLog
+log "Starting leJOS..."
+log "Update Java..."
+${LEJOS_HOME}/bin/updatejre
+log "Start Network..."
+${LEJOS_HOME}/bin/startnetwork
+# perform updates if needed
+#echo "Mount dev system"
+#busybox mount -t nfs -o nolock legovm:/export/lejos /home/lejos
+log "Load modules..."
+${LEJOS_HOME}/bin/init
+log "Start menu..."
+stopLog
+# Run the menu
+(cd ${LEJOS_HOME}/bin/utils; ${LEJOS_HOME}/bin/jrun -jar EV3Menu.jar `hostname` `cat ${LEJOS_HOME}/version` >/dev/null 2>&1)

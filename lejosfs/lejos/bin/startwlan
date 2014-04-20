@@ -1,6 +1,0 @@
-#! /bin/sh
-# start wpa_supplicant
-/home/root/lms2012/sys/wpa_supplicant -B -Dwext -iwlan0 -c/mnt/bootpar/wpa_supplicant.conf
-# get ip address etc.
-udhcpc -i wlan0
-

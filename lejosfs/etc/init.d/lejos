@@ -1,6 +1,6 @@
 #! /bin/sh
-startup=/lejos/bin/startup
-shutdown=/lejos/bin/shutdown
+startup=/home/root/lejos/bin/startup
+shutdown=/home/root/lejos/bin/shutdown
 test -x "$startup" || exit 0
 test -x "$shutdown" || exit 0
 

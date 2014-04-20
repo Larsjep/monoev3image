@@ -1,0 +1,52 @@
+#! /bin/sh
+. /etc/default/lejos
+. ${LEJOS_HOME}/bin/funcs.sh
+log "Start WiFi..."
+# get our network address
+LJBIN=${LEJOS_HOME}/bin
+HOSTNAME=`hostname`
+# Now we start wlan
+# kill any existing processes
+killall wpa_supplicant udhcpc 2> /dev/null
+log "Check configuration..."
+# check for interface
+iface=`ifconfig -a | grep wlan0`
+if [ "$iface" = "" ]; then
+  log "no device found"
+  exit
+fi
+# start wpa_supplicant note must use the Lego version not the default system
+echo hostname is ${HOSTNAME}
+echo searching for wlan
+if [ -f ${LJBIN}/utils/wpa_supplicant.conf ];
+then
+  echo "using lejos config"
+  config=${LJBIN}/utils/wpa_supplicant.conf
+else
+  echo "using system config"
+  config=/etc/wpa_supplicant.conf
+fi
+if [ ! -f $config ];
+then
+  log "No wpa config"
+  log "Run supplicant..."
+  ${LJBIN}/wpa_supplicant -B -Dwext -iwlan0 -c${LJBIN}/utils/base_wpa_supplicant.conf > /dev/null 2>&1
+  exit
+fi
+${LJBIN}/wpa_supplicant -B -Dwext -iwlan0 -c$config > /dev/null 2>&1
+count=10
+while [ $count -gt 0 ]; do
+  sleep 2 
+  state=`wpa_cli status | grep state 2> /dev/null`
+  echo $state
+  case $state in
+    *COMPLETED) break;;
+    *) let count=count-1;;
+  esac
+  log "Searching for AP..."
+done 
+wpa_cli status | grep sid 2> /dev/null
+# get ip address etc.
+log "Request IP address..."
+exec udhcpc --retries=10 --now -i wlan0 -h ${HOSTNAME}
+

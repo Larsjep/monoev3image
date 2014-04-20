@@ -1,3 +1,0 @@
-#! /bin/sh
-export LD_LIBRARY_PATH=/lejos/libjna/usr/lib/arm-linux-gnueabi/:/lejos/libjna/usr/lib/jni/
-/lejos/ejre*/bin/java -classpath /lejos/lib/ev3classes.jar:/lejos/libjna/usr/share/java/jna.jar:. $*

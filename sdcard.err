@@ -1,0 +1,101 @@
+
+Command (m for help): 
+Disk /dev/sdb: 3980 MB, 3980394496 bytes
+123 heads, 62 sectors/track, 1019 cylinders, total 7774208 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0xafc671a5
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1            2048      104447       51200    b  W95 FAT32
+/dev/sdb2          104448     4095999     1995776   83  Linux
+
+Command (m for help): Partition number (1-4): 
+Command (m for help): Selected partition 2
+
+Command (m for help): 2: unknown command
+Command action
+   a   toggle a bootable flag
+   b   edit bsd disklabel
+   c   toggle the dos compatibility flag
+   d   delete a partition
+   l   list known partition types
+   m   print this menu
+   n   add a new partition
+   o   create a new empty DOS partition table
+   p   print the partition table
+   q   quit without saving changes
+   s   create a new empty Sun disklabel
+   t   change a partition's system id
+   u   change display/entry units
+   v   verify the partition table
+   w   write table to disk and exit
+   x   extra functionality (experts only)
+
+Command (m for help): 
+Disk /dev/sdb: 3980 MB, 3980394496 bytes
+123 heads, 62 sectors/track, 1019 cylinders, total 7774208 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0xafc671a5
+
+   Device Boot      Start         End      Blocks   Id  System
+
+Command (m for help): Partition type:
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended
+Select (default p): Partition number (1-4, default 1): First sector (2048-7774207, default 2048): Using default value 2048
+Last sector, +sectors or +size{K,M,G} (2048-7774207, default 7774207): 
+Command (m for help): Selected partition 1
+Hex code (type L to list codes): Changed system type of partition 1 to b (W95 FAT32)
+
+Command (m for help): Partition type:
+   p   primary (1 primary, 0 extended, 3 free)
+   e   extended
+Select (default p): Partition number (1-4, default 2): First sector (104448-7774207, default 104448): Using default value 104448
+Last sector, +sectors or +size{K,M,G} (104448-7774207, default 7774207): Using default value 7774207
+
+Command (m for help): 
+Disk /dev/sdb: 3980 MB, 3980394496 bytes
+123 heads, 62 sectors/track, 1019 cylinders, total 7774208 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0xafc671a5
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1            2048      104447       51200    b  W95 FAT32
+/dev/sdb2          104448     7774207     3834880   83  Linux
+
+Command (m for help): The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+
+WARNING: If you have created or modified any DOS 6.x
+partitions, please see the fdisk manual page for additional
+information.
+Syncing disks.
+mkfs.msdos 3.0.12 (29 Oct 2011)
+mke2fs 1.42 (29-Nov-2011)
+Filesystem label=LMS2012_EXT
+OS type: Linux
+Block size=4096 (log=2)
+Fragment size=4096 (log=2)
+Stride=0 blocks, Stripe width=0 blocks
+240000 inodes, 958720 blocks
+47936 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=985661440
+30 block groups
+32768 blocks per group, 32768 fragments per group
+8000 inodes per group
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736
+
+Allocating group tables:  0/30 1/30 2/30 3/30 4/30 5/30 6/30 7/30 8/30 9/3010/3011/3012/3013/3014/3015/3016/3017/3018/3019/3020/3021/3022/3023/3024/3025/3026/3027/3028/3029/30     done                            
+Writing inode tables:  0/30 1/30 2/30 3/30 4/30 5/30 6/30 7/30 8/30 9/3010/3011/3012/3013/3014/3015/3016/3017/3018/3019/3020/3021/3022/3023/3024/3025/3026/3027/3028/3029/30     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/30 1/30 2/30 3/30 4/30 5/30 6/30 7/30 8/30 9/3010/3011/3012/3013/3014/3015/3016/3017/3018/3019/3020/3021/3022/3023/3024/3025/3026/3027/3028/3029/30     done
+

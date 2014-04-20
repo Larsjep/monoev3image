@@ -1,0 +1,33 @@
+#! /bin/sh
+. /etc/default/lejos
+. ${LEJOS_HOME}/bin/funcs.sh
+# We act as a server for USB and Bluetooth network connections. Bridge
+# both types of connections together and run dhcpd on them
+# get our network address
+log "Start USB net..."
+LJBIN=${LEJOS_HOME}/bin
+NETADDRESS=`cat ${LJBIN}/netaddress`
+HOSTNAME=`hostname`
+# construct config file - nasty but works so long as the address is x.x.x.1!
+echo interface br0 > ${LJBIN}/udhcpd.conf
+echo start ${NETADDRESS}0 >> ${LJBIN}/udhcpd.conf
+echo end ${NETADDRESS}9 >> ${LJBIN}/udhcpd.conf
+echo opt subnet 255.255.255.0 >> ${LJBIN}/udhcpd.conf
+# create the bridge and configure it
+brctl addbr br0
+ifconfig br0 ${NETADDRESS} netmask 255.255.255.0
+brctl setfd br0 0
+brctl stp br0 off
+# setup the USB interface
+modprobe g_ether
+ifconfig usb0 0.0.0.0
+brctl addif br0 usb0
+# make this the default gateway for now
+route add default gw ${NETADDRESS}0 br0
+# start dhcpd
+udhcpd ${LJBIN}/udhcpd.conf
+# configure and start bluetooth using default pin
+${LJBIN}/startbt
+# Now we start wlan
+${LJBIN}/startwlan
+

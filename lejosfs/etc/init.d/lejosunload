@@ -1,5 +1,5 @@
 #! /bin/sh
-unload=/lejos/bin/exit
+unload=/home/root/lejos/bin/exit
 test -x "$unload" || exit 0
 
 case "$1" in
