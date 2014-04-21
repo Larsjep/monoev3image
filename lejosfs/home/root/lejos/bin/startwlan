@@ -18,14 +18,7 @@ fi
 # start wpa_supplicant note must use the Lego version not the default system
 echo hostname is ${HOSTNAME}
 echo searching for wlan
-if [ -f ${LJBIN}/utils/wpa_supplicant.conf ];
-then
-  echo "using lejos config"
-  config=${LJBIN}/utils/wpa_supplicant.conf
-else
-  echo "using system config"
-  config=/etc/wpa_supplicant.conf
-fi
+config=/mnt/bootpar/wpa_supplicant.conf
 if [ ! -f $config ];
 then
   log "No wpa config"

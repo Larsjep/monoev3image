@@ -29,5 +29,5 @@ udhcpd ${LJBIN}/udhcpd.conf
 # configure and start bluetooth using default pin
 ${LJBIN}/startbt
 # Now we start wlan
-${LJBIN}/startwlan
+# ${LJBIN}/startwlan
 
