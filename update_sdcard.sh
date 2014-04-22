@@ -58,6 +58,7 @@ then
         
         #sudo cp -r lejosfs/* $mount/LMS2012_EXT
 	sudo cp wpa_supplicant.conf "$mount/LMS2012"
+	sudo mkdir "$rootfs"/$LJHOME/mod
 	sudo cp mod/*.ko "$rootfs"/$LJHOME/mod
 	sh -c "echo $ipaddress > '$rootfs'/$LJHOME/bin/netaddress"
 
