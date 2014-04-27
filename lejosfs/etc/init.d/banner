@@ -6,7 +6,9 @@ setterm -cursor off > /dev/tty1
 setterm -blank 0 > /dev/tty1
 setterm -linewrap off > /dev/tty1
 setterm -clear > /dev/tty1
-# cp ${LEJOS_HOME}/images/lejoslogo.ev3i /dev/fb0
+cp ${LEJOS_HOME}/images/monobrick_logo.ev3i /dev/fb0
+echo > /dev/tty1
+echo > /dev/tty1
 echo > /dev/tty1
 echo > /dev/tty1
 echo > /dev/tty1

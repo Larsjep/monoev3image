@@ -53,6 +53,8 @@ echo
 echo 
 echo
 echo
+echo
+echo
 
 if [[ -f $logfile ]]; then
     logsize=$(ls -l $logfile 2> /dev/null | awk '{print $5;}' 2>/dev/null)

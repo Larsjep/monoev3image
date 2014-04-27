@@ -17,7 +17,7 @@ startLog()
   setterm -linewrap off > /dev/tty1
   setterm -clear > /dev/tty1
   # load the logo
-  cp ${LEJOS_HOME}/images/lejoslogo.ev3i /dev/fb0
+  cp ${LEJOS_HOME}/images/monobrick_logo.ev3i /dev/fb0
   echo "" > /tmp/logfile
   ${LEJOS_HOME}/bin/spinner.sh > /dev/tty1 &
 }
