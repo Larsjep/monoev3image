@@ -6,10 +6,13 @@ do
   then
     local dest=$2/$arg
     local src=$1/$arg/bin/Debug
-    echo Copying program $arg to $dest
-    mkdir $dest
-    cp $src/*.exe $dest
-    cp $src/*.dll $dest
+    if [ -f $src/*.exe ]
+    then
+      echo Copying program $arg to $dest
+      sudo mkdir $dest
+      sudo cp $src/*.exe $dest
+      sudo cp $src/*.dll $dest
+    fi
   fi
 done
 }
