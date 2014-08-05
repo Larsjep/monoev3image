@@ -14,6 +14,8 @@ sudo mkdir ${homedir}/apps
 sudo find -iname StartupApp.exe -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
 sudo find -iname MonoBrickFirmware.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
 sudo find -iname StartupApp.XmlSerializers.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
+sudo find -iname version.txt -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
+
 
 cd ..
 copyEv3Apps ev3lib ${homedir}/apps
