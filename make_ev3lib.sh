@@ -14,7 +14,7 @@ dllZipName=$outputDir/"MonoBrick.zip"
 mdtoolExe="/Applications/Xamarin Studio.app/Contents/MacOS/mdtool"
 solutionFile=$ev3LibDir"/MonoBrick.sln"
 ev3Git=https://github.com/Larsjep/monoev3
-branchName="master"
+branchName=$3
 
 #-------------------------------------------
 # If we using Linux change the path to mdtool

@@ -7,6 +7,7 @@ sudo -v
 drive=loop0
 img=$1
 size=$2
+branchName=$3
 
 echo "  ...."creating image file
         
@@ -72,7 +73,7 @@ sudo mount /dev/mapper/loop0p2 /mnt/LMS2012_EXT
 ./update_sdcard.sh /mnt
 
 echo "Adding ev3 library and examples"
-./make_ev3lib.sh /mnt
+./make_ev3lib.sh /mnt $branchName
 
 echo "Unmounting"
 sudo umount /mnt/LMS*
@@ -80,6 +81,6 @@ sudo kpartx -d -v ${img}
 echo "Compressing image"
 gzip ${img}
 echo "Cleaning up"
-sudo rm -r ev3lib
+#sudo rm -r ev3lib
 echo "All done..."
 
