@@ -71,7 +71,6 @@ sudo mkdir /mnt/LMS2012_EXT
 sudo mount /dev/mapper/loop0p2 /mnt/LMS2012_EXT
 
 ./update_sdcard.sh /mnt
-echo $buildev3lib
 if [ $buildev3lib == "false" ];
   then
    echo "Skipping building ev3 lib"
