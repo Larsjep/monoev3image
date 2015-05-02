@@ -72,16 +72,16 @@ sudo mount /dev/mapper/loop0p2 /mnt/LMS2012_EXT
 
 ./update_sdcard.sh /mnt
  echo $buildev3lib
-if [ $buildev3lib == "false" ];
+if [ $buildev3lib == "0" ];
   then
    echo "Skipping building ev3 lib"
   else
-   if [ $buildev3lib == "true" ];
+   if [ $buildev3lib == "1" ];
    then
     echo "Building ev3 library"
     ./make_ev3lib.sh /mnt $branchName
    else
-    echo "Input argument is invalid must be true or false"
+    echo "Input argument is invalid must be 0 or 1"
     exit 1
    fi
 fi
