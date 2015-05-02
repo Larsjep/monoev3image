@@ -8,7 +8,7 @@ drive=loop0
 img=$1
 size=$2
 branchName=$3
-
+buildev3lib=$4
 echo "  ...."creating image file
         
 dd if=/dev/zero of=${img} bs=1M count=${size}
@@ -72,8 +72,36 @@ sudo mount /dev/mapper/loop0p2 /mnt/LMS2012_EXT
 
 ./update_sdcard.sh /mnt
 
-echo "Adding ev3 library and examples"
-./make_ev3lib.sh /mnt $branchName
+if [ $buildev3lib == "false" ];
+  then
+   echo "Skipping building ev3 lib"
+  else
+   if [ $branchName == "true" ];
+   then
+    echo "Building ev3 library"
+    ./make_ev3lib.sh /mnt $branchName
+   else
+    echo "Input argument is invalid must be true or false"
+    exit 1
+   fi
+fi
+
+#---------------------------------------------------------------------
+# Copy start up app and programs to SD card
+#----------------------------------------------------------------------
+ev3LibDir=$currentDir"/ev3lib"
+cd $ev3LibDir
+
+homedir=/mnt/LMS2012_EXT/home/root
+echo homedir = ${homedir}
+sudo mkdir ${homedir}/apps
+sudo find -iname StartupApp.exe -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
+sudo find -iname MonoBrickFirmware.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
+sudo find -iname StartupApp.XmlSerializers.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
+sudo find -iname version.txt -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
+
+cd ..
+#copyEv3Apps $ev3LibDir ${homedir}/apps
 
 echo "Unmounting"
 sudo umount /mnt/LMS*
