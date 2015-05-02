@@ -99,8 +99,9 @@ sudo find -iname MonoBrickFirmware.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local
 sudo find -iname StartupApp.XmlSerializers.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
 sudo find -iname version.txt -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
 
-cd ..
+#cd ..
 #copyEv3Apps $ev3LibDir ${homedir}/apps
+cd $curdir
 
 echo "Unmounting"
 sudo umount /mnt/LMS*
