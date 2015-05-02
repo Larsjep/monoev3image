@@ -88,9 +88,7 @@ fi
 #---------------------------------------------------------------------
 # Copy start up app and programs to SD card
 #----------------------------------------------------------------------
-ev3LibDir=$currentDir"/ev3lib"
-cd $ev3LibDir
-
+#
 homedir=/mnt/LMS2012_EXT/home/root
 echo homedir = ${homedir}
 sudo mkdir ${homedir}/apps
@@ -99,9 +97,10 @@ sudo find -iname MonoBrickFirmware.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local
 sudo find -iname StartupApp.XmlSerializers.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
 sudo find -iname version.txt -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
 
-#cd ..
+#ev3LibDir=$currentDir"/ev3lib"
+#cd $ev3LibDir
 #copyEv3Apps $ev3LibDir ${homedir}/apps
-cd $curdir
+#cd $curdir
 
 echo "Unmounting"
 sudo umount /mnt/LMS*
