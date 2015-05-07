@@ -78,9 +78,10 @@ nuget restore  $solutionFile
 # Compress the DLL firmware file to a zip file
 #---------------------------------------------
 find . -name "$dllName" -type f -exec cp {} "$outputDir" \;
-find . -name "*mpack" -type f -exec cp {} "$outputDir" \;
+find . -name "*mpack" -type f -exec cp {} "$outputDir" \Addin.mpack;
 cd $outputDir
 zip $dllZipName $dllName
+
 
 #---------------------------------------------------------------------
 # Create the StarupApp install package and copy it to the output folder
