@@ -88,7 +88,7 @@ mv *.mpack addin.mpack
 #----------------------------------------------------------------------
 mv $ev3LibDir/InstallCreator/bin/Release/InstallCreator.exe $ev3LibDir/StartupApp/bin/Release/InstallCreator.exe  
 cd $ev3LibDir/StartupApp/bin/Release
-mono InstallCreator.exe test
+mono InstallCreator.exe
 rm InstallCreator.exe
 mkdir $outputDir/StartupApp
 cp -r . $outputDir/StartupApp
