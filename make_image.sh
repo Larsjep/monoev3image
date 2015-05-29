@@ -1,4 +1,4 @@
-#! /bin/bash
+! /bin/bash
 
 #source ${PWD}/env_setup
 curdir=${PWD}
@@ -92,10 +92,13 @@ fi
 homedir=/mnt/LMS2012_EXT/home/root
 echo homedir = ${homedir}
 sudo mkdir ${homedir}/apps
-sudo find -iname StartupApp.exe -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
-sudo find -iname MonoBrickFirmware.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
-sudo find -iname StartupApp.XmlSerializers.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
-sudo find -iname version.txt -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
+sudo cp $curdir"/output/StartupApp/*.*" "/mnt/LMS2012_EXT/usr/local/bin"
+sudo cp $curdir"/version.txt" "/mnt/LMS2012_EXT/usr/local/bin"
+
+#sudo find -iname StartupApp.exe -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
+#sudo find -iname MonoBrickFirmware.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
+#sudo find -iname StartupApp.XmlSerializers.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
+#cp "version.txt" "/mnt/LMS2012_EXT/usr/local/bin" \;
 
 #ev3LibDir=$currentDir"/ev3lib"
 #cd $ev3LibDir

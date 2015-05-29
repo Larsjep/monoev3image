@@ -92,21 +92,3 @@ mono InstallCreator.exe
 rm InstallCreator.exe
 mkdir $outputDir/StartupApp
 cp -r . $outputDir/StartupApp
-
-
-#---------------------------------------------------------------------
-# Copy start up app and programs to SD card
-#----------------------------------------------------------------------
-#cd $ev3LibDir
-
-#homedir=${1}/LMS2012_EXT/home/root
-#echo homedir = ${homedir}
-#sudo mkdir ${homedir}/apps
-#sudo find -iname StartupApp.exe -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
-#sudo find -iname MonoBrickFirmware.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
-#sudo find -iname StartupApp.XmlSerializers.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
-#sudo find -iname version.txt -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
-
-
-#cd ..
-#copyEv3Apps $ev3LibDir ${homedir}/apps
