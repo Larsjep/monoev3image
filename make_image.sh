@@ -9,6 +9,8 @@ img=$1
 size=$2
 branchName=$3
 buildev3lib=$4
+repository=$5
+
 echo "  ...."creating image file
         
 dd if=/dev/zero of=${img} bs=1M count=${size}
@@ -94,6 +96,7 @@ echo homedir = ${homedir}
 sudo mkdir ${homedir}/apps
 sudo cp -r $curdir"/output/StartupApp/." "/mnt/LMS2012_EXT/usr/local/bin"
 sudo cp $curdir"/version.txt" "/mnt/LMS2012_EXT/usr/local/bin"
+sudo echo $repository > "/mnt/LMS2012_EXT/usr/local/bin/repository.txt"
 
 #sudo find -iname StartupApp.exe -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
 #sudo find -iname MonoBrickFirmware.dll -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
