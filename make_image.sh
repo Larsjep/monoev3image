@@ -92,7 +92,7 @@ fi
 homedir=/mnt/LMS2012_EXT/home/root
 echo homedir = ${homedir}
 sudo mkdir ${homedir}/apps
-sudo cp $curdir"/output/StartupApp/*.*" "/mnt/LMS2012_EXT/usr/local/bin"
+sudo cp -r $curdir"/output/StartupApp/." "/mnt/LMS2012_EXT/usr/local/bin"
 sudo cp $curdir"/version.txt" "/mnt/LMS2012_EXT/usr/local/bin"
 
 #sudo find -iname StartupApp.exe -exec cp "{}" "/mnt/LMS2012_EXT/usr/local/bin" \;
