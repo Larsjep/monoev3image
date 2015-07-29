@@ -18,7 +18,7 @@ if [ ! -f "/usr/local/bin/StartupApp.exe.so" ]; then
   log "AOT compiling..."
   /usr/local/bin/mono --aot=full /usr/local/bin/StartUp/StartupApp.exe >> /home/root/startuplog 2>&1
   /usr/local/bin/mono --aot=full /usr/local/bin/StartUp/MonoBrickFirmware.dll >> /home/root/startuplog 2>&1
-  /usr/local/bin/mono --aot=full /usr/local/bin/StartUp/StartupApp.XmlSerializers.dll >> /home/root/startuplog 2>&1
+  /usr/local/bin/mono --aot=full /usr/local/bin/StartUp/MonoBrickFirmware.XmlSerializers.dll >> /home/root/startuplog 2>&1
 fi
 stopLog
 /usr/local/bin/mono --full-aot /usr/local/bin/StartUp/StartupApp.exe >> /home/root/startuplog 2>&1  &
